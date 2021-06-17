@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv").config();
 const adminRouter = require("./routers/adminRouter");
 const publicRouter = require("./routers/publicRouter");
@@ -17,6 +18,7 @@ mongoose.connect(
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 
 // Routers
 app.use("/admin", adminRouter);
